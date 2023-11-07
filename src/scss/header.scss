@@ -16,6 +16,7 @@
         font-size: 30px;
         font-weight: 400;
         color: white;
+        padding: 0 10px;
     }
 
     #header-input {
@@ -65,5 +66,59 @@
         .fa-solid {
             color: white;
         }
+    }
+
+}
+
+.header {
+    &-modal {
+        background-color: #e6c9fb36;
+        display: none;
+        // display: flex;
+        width: 400px;
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        border-radius: 10px;
+        position: absolute;
+        right: 0px;
+    }
+
+    &-modal_title {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        padding-bottom: 30px;
+    }
+
+    &-modal_title,
+    &-modal_btn {
+        font-size: 20px;
+    }
+
+    &-modal_btn {
+        background-color: #e33dcd;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    &-modal_btn:hover {
+        background-color: #f946e2;
+    }
+
+    &-modal_card {
+        display: none;
+        width: 100%;
+        // display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+
+    &-modal_summary {
+        display: flex;
+        width: 100%;
+        justify-content:  space-between;
     }
 }
