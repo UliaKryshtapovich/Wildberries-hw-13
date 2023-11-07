@@ -1,0 +1,111 @@
+// header
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 0px;
+
+        &-logo {
+            font-size: 20px;
+        }
+
+        #header-input {
+            width: 300px;
+            height: 40px;
+            font-size: 18px;
+        }
+
+        .search-icon {
+            font-size: 16px;
+            top: 21px;
+        }
+
+        &-cart {
+
+            width: 80px;
+        }
+
+        &-cart .fa-solid {
+            font-size: 23px;
+        }
+    }
+}
+
+
+@media (max-width: 425px) {
+    #container {
+        padding: 5px 0px;
+    }
+
+    .header {
+        padding: 0px 5px;
+
+        &-logo {
+            font-size: 15px;
+        }
+
+        #header-input {
+            font-size: 14px;
+            width: 160px;
+            height: 30px;
+            padding-left: 40px
+        }
+
+        .search-icon {
+            font-size: 12px;
+            top: 15px;
+        }
+
+        &-cart {
+            width: 65px;
+        }
+
+        &-cart .fa-solid {
+            font-size: 18px;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .header {
+        &-logo {
+            font-size: 12px;
+        }
+
+        #header-input {
+            width: 110px;
+            height: 25px;
+            font-size: 11px;
+            padding-left: 23px;
+        }
+
+        & .search-icon {
+            font-size: 11px;
+            top: 12px;
+            left: 8px;
+        }
+
+        &-cart {
+            width: 45px;
+            height: 40px;
+        }
+
+        & .fa-solid {
+            font-size: 16px;
+        }
+    }
+}
+
+// header end
+
+//slider start 
+
+
+//slider end
+
+
+
+//products start
+
+
+
+
+//products end

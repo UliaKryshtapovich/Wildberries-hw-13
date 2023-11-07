@@ -1,0 +1,23 @@
+{
+  "name": "wildberries-hw-13",
+  "version": "1.0.0",
+  "description": "Wildberries-hw-13 (комманда №2 )",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UliaKryshtapovich/Wildberries-hw-13.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UliaKryshtapovich/Wildberries-hw-13/issues"
+  },
+  "homepage": "https://github.com/UliaKryshtapovich/Wildberries-hw-13#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.69.5"
+  }
+}
