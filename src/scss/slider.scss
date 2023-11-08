@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.slider-container{
+    overflow: hidden;
+    position: relative;
+}
+.slider-wrapper{
+    margin: 20px 0 20px 0;
+    position: relative;
+    display: flex;
+    // transition: transform 3s ease-in-out;
+    // transform: translate(-100%);
+}
+.slide-wrapper{
+    & img{
+        max-height: 170px;
+        width: 100%;
+    }
+}
