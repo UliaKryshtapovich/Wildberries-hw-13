@@ -29,6 +29,7 @@
         width: 580px;
         padding-left: 50px;
         outline: none;
+        color: white;
 
         &::placeholder {
             color: rgba(255, 255, 255, 0.6509803922);
@@ -75,14 +76,16 @@
         background-color: #e6c9fb36;
         display: none;
         // display: flex;
-        width: 400px;
         padding: 20px;
         flex-direction: column;
         align-items: center;
-        margin: 0 auto;
         border-radius: 10px;
         position: absolute;
         right: 0px;
+        background-color: rgba(230, 201, 251, 0.2117647059);
+        width: 650px;
+        right: 50%;
+        transform: translateX(50%);
     }
 
     &-modal_title {
@@ -100,7 +103,8 @@
 
     &-modal_btn {
         background-color: #e33dcd;
-        padding: 5px;
+        color: white;
+        padding: 9px;
         border-radius: 5px;
     }
 
@@ -119,6 +123,6 @@
     &-modal_summary {
         display: flex;
         width: 100%;
-        justify-content:  space-between;
+        justify-content: space-between;
     }
 }
