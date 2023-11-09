@@ -1,0 +1,109 @@
+.section-products {
+  padding: 25px 0 0 0;
+
+  &__title {
+    margin-left: 50px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+
+  &__card {
+    width: 230px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    // margin-left: 30px;
+
+    &:first-child {
+      //   margin-left: 0;
+    }
+
+    &-img {
+      width: 100%;
+      height: 296px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      border-radius: 7px;
+      img {
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &-sale {
+      position: absolute;
+      top: 270px;
+      left: 15px;
+      z-index: 3;
+      background-color: $btn-normal;
+      border-radius: 5px;
+      padding: 1px 2px;
+      p {
+        color: $white;
+        font-size: 15px;
+      }
+    }
+
+    &-button {
+      position: absolute;
+      top: 240px;
+      left: 165px;
+      z-index: 3;
+      display: block;
+      background-color: $btn-normal;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      i {
+        font-size: 18px;
+        color: $white;
+      }
+
+      &:hover {
+        background-color: $btn-hover;
+      }
+    }
+
+    &-price {
+      display: flex;
+      align-items: end;
+      margin-top: 13px;
+
+      &__present {
+        margin-left: 5px;
+        p {
+          font-size: 18px;
+          font-weight: bold;
+
+          &:hover {
+            color: $btn-hover;
+          }
+        }
+      }
+
+      &__past {
+        margin-left: 5px;
+        p {
+          font-size: 15px;
+          color: $light-gray;
+          text-decoration: line-through;
+        }
+      }
+    }
+
+    &-title {
+      margin-top: 13px;
+      margin-left: 5px;
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}
