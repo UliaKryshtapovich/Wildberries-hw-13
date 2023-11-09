@@ -18,7 +18,7 @@
   </head>
   <body>
     <header class="header" id="header">
-      <div class="container" id="container">
+      <div class="container" id="container_header">
         <div class="header-wrapper">
           <div class="header-logo">
             <span>WILDBERRIES</span>
@@ -61,6 +61,7 @@
   </div>
     <!-- слайдер -->
     <section id="section-slider">
+<
       <div class="container" id="container">
        <div class="slider-container">
         <div class="slider-wrapper">
@@ -75,13 +76,16 @@
         </div>
        </div>
       </div>
+      <div class="container" id="container_slider"></div>
+
     </section>
     <!-- товары -->
     <section class="section-products" id="section-products">
-      <div class="container" id="container">
+      <div class="container" id="container_products">
         <h2 class="section-products__title">Хиты продаж</h2>
         <div class="section-products__wrapper">
-          <div class="section-products__card">
+
+          <!-- <div class="section-products__card" id="dispenser">
             <div class="section-products__card-img">
               <img
                 src="./img/product/front-view-of-bath-concept-accessories.jpg"
@@ -103,11 +107,11 @@
               </div>
             </div>
             <div class="section-products__card-title">
-              <p>Штаны</p>
+              <p>Дозатор</p>
             </div>
-          </div>
+          </div> -->
 
-          <div class="section-products__card">
+          <!-- <div class="section-products__card" id="towel">   
             <div class="section-products__card-img">
               <img src="./img/product/bathroom-1281614_1920.jpg" alt="#" />
               <div class="section-products__card-sale">
@@ -126,11 +130,11 @@
               </div>
             </div>
             <div class="section-products__card-title">
-              <p>Штаны</p>
+              <p>Полотенце</p>
             </div>
           </div>
 
-          <div class="section-products__card">
+          <div class="section-products__card" id="picture">
             <div class="section-products__card-img">
               <img src="./img/product/bed-6830011_1920.jpg" alt="#" />
               <div class="section-products__card-sale">
@@ -149,11 +153,11 @@
               </div>
             </div>
             <div class="section-products__card-title">
-              <p>Штаны</p>
+              <p>Картина</p>
             </div>
           </div>
 
-          <div class="section-products__card">
+          <div class="section-products__card" id="lipstick">
             <div class="section-products__card-img">
               <img
                 src="./img/product/high-angle-pink-shades-lipstick.jpg"
@@ -175,11 +179,11 @@
               </div>
             </div>
             <div class="section-products__card-title">
-              <p>Штаны</p>
+              <p>Помада</p>
             </div>
           </div>
 
-          <div class="section-products__card">
+          <div class="section-products__card" id="ebook">
             <div class="section-products__card-img">
               <img src="./img/product/kobo-3544072_1920.jpg" alt="#" />
               <div class="section-products__card-sale">
@@ -198,11 +202,11 @@
               </div>
             </div>
             <div class="section-products__card-title">
-              <p>Штаны</p>
+              <p>Электронная книга</p>
             </div>
           </div>
 
-          <div class="section-products__card">
+          <div class="section-products__card" id="vitamins">
             <div class="section-products__card-img">
               <img src="./img/product/pill-3069032_1920.jpg" alt="#" />
               <div class="section-products__card-sale">
@@ -221,11 +225,11 @@
               </div>
             </div>
             <div class="section-products__card-title">
-              <p>Штаны</p>
+              <p>Витамины</p>
             </div>
           </div>
 
-          <div class="section-products__card">
+          <div class="section-products__card" id="watch">
             <div class="section-products__card-img">
               <img src="./img/product/smart-watch-821557_1920.jpg" alt="#" />
               <div class="section-products__card-sale">
@@ -244,11 +248,11 @@
               </div>
             </div>
             <div class="section-products__card-title">
-              <p>Штаны</p>
+              <p>Часы</p>
             </div>
           </div>
 
-          <div class="section-products__card">
+          <div class="section-products__card" id="socks">
             <div class="section-products__card-img">
               <img src="./img/product/socks-1495920_1920.jpg" alt="#" />
               <div class="section-products__card-sale">
@@ -267,11 +271,11 @@
               </div>
             </div>
             <div class="section-products__card-title">
-              <p>Штаны</p>
+              <p>Носки</p>
             </div>
           </div>
 
-          <div class="section-products__card">
+          <div class="section-products__card" id="headphones">
             <div class="section-products__card-img">
               <img src="./img/product/technology-3068617_1920.jpg" alt="#" />
               <div class="section-products__card-sale">
@@ -290,11 +294,11 @@
               </div>
             </div>
             <div class="section-products__card-title">
-              <p>Штаны</p>
+              <p>Наушники</p>
             </div>
           </div>
 
-          <div class="section-products__card">
+          <div class="section-products__card" id="plate">
             <div class="section-products__card-img">
               <img
                 src="./img/product/vertical-shot-of-a-pink-plate-on-a-table.jpg"
@@ -316,16 +320,21 @@
               </div>
             </div>
             <div class="section-products__card-title">
-              <p>Штаны</p>
+              <p>Тарелка</p>
             </div>
-          </div>
+          </div> -->
+       
         </div>
       </div>
     </section>
 
     <!-- модульное окно товаров -->
     <div class="products-modal"></div>
+    
+    <script type="module" src="./js/products.json"></script>
+    <script type="module" src="./js/renderProducts.js"></script>
     <script type="module" src="./js/header.js"></script>
+
     <script type="module" src="../src/js/slider.js"></script>
     <script type="module" src="../src/js/script.js"></script>
   </body>
