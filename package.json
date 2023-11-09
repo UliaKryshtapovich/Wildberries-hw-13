@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/UliaKryshtapovich/Wildberries-hw-13#readme",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.10.2",
     "parcel-bundler": "^1.12.5",
     "sass": "^1.69.5"
+  },
+  "dependencies": {
+    "parcel": "^2.10.2"
   }
 }
