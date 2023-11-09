@@ -82,10 +82,11 @@
         border-radius: 10px;
         position: absolute;
         right: 0px;
-        background-color: rgba(230, 201, 251, 0.2117647059);
+        background-color: rgb(244, 244, 244);
         width: 650px;
         right: 50%;
         transform: translateX(50%);
+        z-index: 5;
     }
 
     &-modal_title {
