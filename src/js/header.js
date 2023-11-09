@@ -1,6 +1,6 @@
 "use strict";
 
-export { headerCartBascket, headerModal, headerModalCard };
+// import {headerCartBascket, headerModal, headerModalCard } from '../js/script.js';
 
 // переменные
 const headerCartBascket = document.querySelector(".header-cart");
