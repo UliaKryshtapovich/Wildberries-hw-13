@@ -26,9 +26,6 @@ async function getProducts() {
   }
 }
 
-
-
-
 function renderProducts(productsArray) {
   productsArray.forEach(function (item) {
     const productHTML = `<div class="section-products__card" id="${item.id}">
