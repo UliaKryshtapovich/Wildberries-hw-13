@@ -191,10 +191,14 @@
         width: 110px;
     }
 
-    &-modal_render_counter__plus,
-    &-modal_render_counter__minus {
-        width: 20px;
-        height: 20px;
-        background-color: white ;
+    .items-current {
+        font-size: 17px;
+    }
+
+    &-modal_render_counter__plus i,
+    &-modal_render_counter__minus i {
+        font-size: 13px;
+        text-align: center;
+        cursor: pointer;
     }
 }
