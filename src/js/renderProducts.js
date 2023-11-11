@@ -4,14 +4,17 @@ const sectionProductsWrapper = document.querySelector( ".section-products__wrapp
  
 getProducts();
 
-//получение данных из mocapi
+//получение данных из mockapi
 async function getProducts() {
-  try {
-    const response = await fetch(
-      "https://6548af90dd8ebcd4ab236544.mockapi.io/products"
-    );
+  try { // запрос выполняется асинхронно и возвращает объект response
+    const response = await fetch("https://6548af90dd8ebcd4ab236544.mockapi.io/products", {
+      method: 'GET', // получаем данные
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
 
-    if (!response.ok) {
+    if (!response.ok) { // статус ответа в диапазоне (200-299) или выбрасываем ошибку
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
@@ -23,13 +26,11 @@ async function getProducts() {
   }
 }
 
-
-
 function renderProducts(productsArray) {
   productsArray.forEach(function (item) {
     const productHTML = `<div class="section-products__card" id="${item.id}">
        <div class="section-products__card-img">
-         <img src="${item.img}" alt="#" />
+         <img src="${item.img}" alt="#"/>
          <div class="section-products__card-sale">
            <p>-60%</p>
          </div>
