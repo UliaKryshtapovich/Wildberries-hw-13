@@ -15,6 +15,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header class="header" id="header">
@@ -71,18 +75,19 @@
   </div>
     <!-- слайдер -->
     <section id="section-slider">
+      
       <div class="container" id="container">
-       <div class="slider-container">
-        <div class="slider-wrapper">
-            <img class="slider-img" src="./img/slider/1.jpg" alt="#">
-            <img class="slider-img" src="./img/slider/2.jpg" alt="#">
-            <img class="slider-img" src="./img/slider/3.jpg" alt="#">
-            <img class="slider-img" src="./img/slider/4.jpg" alt="#">
-            <img class="slider-img" src="./img/slider/5.jpg" alt="#">
-          <div class="swiper-button-prev controls"></div>
-          <div class="swiper-button-next controls"></div>
-          <div class="swiper-pagination bullet"></div>
+       <div class="swiper">
+        <div class="swiper-wrapper">
+            <img class="swiper-slide" src="./img/slider/1.jpg" alt="#">
+            <img class="swiper-slide" src="./img/slider/2.jpg" alt="#">
+            <img class="swiper-slide" src="./img/slider/3.jpg" alt="#">
+            <img class="swiper-slide" src="./img/slider/4.jpg" alt="#">
+            <img class="swiper-slide" src="./img/slider/5.jpg" alt="#">
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination bullet"></div>
        </div>
       </div>
     </section>
@@ -339,5 +344,6 @@
     <div class="products-modal"></div>
     
     <script type="module" src="./js/header.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="module" src="./js/renderProducts.js"></script>
   </body>
