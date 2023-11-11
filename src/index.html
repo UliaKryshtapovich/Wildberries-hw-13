@@ -35,7 +35,7 @@
     </header>
     <!-- модальное окно корзины -->
     <div id="header-modal" class="header-modal">
-      <div class="header-modal_title"> 
+      <div class="header-modal_title">
         <span> Ваша корзина </span>
         <button class="header-modal_btn">Очистить корзину</button>
       </div>
@@ -44,11 +44,14 @@
       </div>
 
       <div class="header-modal_render" id="header-modal_render">
-        <div class="header-modal_render_img"> 
-          <img src="../src/img/product/high-angle-pink-shades-lipstick.jpg" alt="#">
-         </div>
-        <div class="header-modal_render_desc"> 
-           <span class="header-modal_render_product">Товар</span>
+        <div class="header-modal_render_img">
+          <img
+            src="../src/img/product/high-angle-pink-shades-lipstick.jpg"
+            alt="#"
+          />
+        </div>
+        <div class="header-modal_render_desc">
+          <span class="header-modal_render_product">Товар</span>
           <span class="header-modal_render_price">0rub</span>
         </div>
       </div>
@@ -58,33 +61,29 @@
         <span class="header-modal_summary_price">0rub</span>
       </div>
     </div>
-  </div>
     <!-- слайдер -->
     <section id="section-slider">
-<
       <div class="container" id="container">
-       <div class="slider-container">
-        <div class="slider-wrapper">
-            <img class="slider-img" src="./img/slider/1.jpg" alt="#">
-            <img class="slider-img" src="./img/slider/2.jpg" alt="#">
-            <img class="slider-img" src="./img/slider/3.jpg" alt="#">
-            <img class="slider-img" src="./img/slider/4.jpg" alt="#">
-            <img class="slider-img" src="./img/slider/5.jpg" alt="#">
-          <div class="swiper-button-prev controls"></div>
-          <div class="swiper-button-next controls"></div>
-          <div class="swiper-pagination bullet"></div>
+        <div class="slider-container">
+          <div class="slider-wrapper">
+            <img class="slider-img" src="./img/slider/1.jpg" alt="#" />
+            <img class="slider-img" src="./img/slider/2.jpg" alt="#" />
+            <img class="slider-img" src="./img/slider/3.jpg" alt="#" />
+            <img class="slider-img" src="./img/slider/4.jpg" alt="#" />
+            <img class="slider-img" src="./img/slider/5.jpg" alt="#" />
+            <div class="swiper-button-prev controls"></div>
+            <div class="swiper-button-next controls"></div>
+            <div class="swiper-pagination bullet"></div>
+          </div>
         </div>
-       </div>
       </div>
       <div class="container" id="container_slider"></div>
-
     </section>
     <!-- товары -->
     <section class="section-products" id="section-products">
       <div class="container" id="container_products">
         <h2 class="section-products__title">Хиты продаж</h2>
         <div class="section-products__wrapper">
-
           <!-- <div class="section-products__card" id="dispenser">
             <div class="section-products__card-img">
               <img
@@ -323,18 +322,19 @@
               <p>Тарелка</p>
             </div>
           </div> -->
-       
         </div>
       </div>
     </section>
 
     <!-- модульное окно товаров -->
-    <div class="products-modal"></div>
-    
+    <div class="products-modal" id="products-modal">
+      <h2>fdsfsdfsf</h2>
+    </div>
+
     <script type="module" src="./js/products.json"></script>
     <script type="module" src="./js/renderProducts.js"></script>
     <script type="module" src="./js/header.js"></script>
-
+    <script type="module" src="./js/products.js"></script>
     <script type="module" src="../src/js/slider.js"></script>
     <script type="module" src="../src/js/script.js"></script>
   </body>

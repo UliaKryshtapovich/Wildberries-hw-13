@@ -1,29 +1,29 @@
-"use strict";
+'use strict'
 
-const sectionProductsWrapper = document.querySelector( ".section-products__wrapper");
- 
-getProducts();
+const sectionProductsWrapper = document.querySelector(
+  '.section-products__wrapper'
+)
+
+getProducts()
 
 //получение данных из mocapi
 async function getProducts() {
   try {
     const response = await fetch(
-      "https://6548af90dd8ebcd4ab236544.mockapi.io/products"
-    );
+      'https://6548af90dd8ebcd4ab236544.mockapi.io/products'
+    )
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      throw new Error(`HTTP error! Status: ${response.status}`)
     }
 
-    const productsArray = await response.json();
+    const productsArray = await response.json()
 
-    renderProducts(productsArray);
+    renderProducts(productsArray)
   } catch (error) {
-    console.error('Ошибка при получении товаров:', error.message);
+    console.error('Ошибка при получении товаров:', error.message)
   }
 }
-
-
 
 function renderProducts(productsArray) {
   productsArray.forEach(function (item) {
@@ -48,7 +48,7 @@ function renderProducts(productsArray) {
        <div class="section-products__card-title">
          <p>${item.title}</p>
        </div>
-     </div>`;
-    sectionProductsWrapper.insertAdjacentHTML("beforeend", productHTML);
-  });
+     </div>`
+    sectionProductsWrapper.insertAdjacentHTML('beforeend', productHTML)
+  })
 }
