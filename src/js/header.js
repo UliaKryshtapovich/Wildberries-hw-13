@@ -97,7 +97,7 @@ window.addEventListener("click", function (event) {
           </div>
         </div>
         <div class="header-modal_render_btn"> 
-          <button class="header-modal_render_delete">Удалить товар</button>
+          <button class="header-modal_render_delete"><i class="fa-solid fa-trash"></i></button>
         </div>
       </div>`;
 

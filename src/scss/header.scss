@@ -76,7 +76,7 @@
         background-color: #e6c9fb36;
         display: none;
         // display: flex;
-        padding: 30px 150px;
+        padding: 30px 280px;
         flex-direction: column;
         align-items: center;
         border-radius: 10px;
@@ -95,12 +95,18 @@
         width: 100%;
         align-items: center;
         padding-bottom: 50px;
-        font-size: 22px;
+        font-size: 27px;
     }
 
     &-modal_render,
     &-modal_summary,
     &-modal_btn {
+        font-size: 19px;
+    }
+
+    &-modal_render_delete {
+        width: 50px;
+        height: 50px;
         font-size: 16px;
     }
 
@@ -154,8 +160,8 @@
     }
 
     &-modal_render_img {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 180px;
         overflow: hidden;
         display: flex;
         align-items: center;

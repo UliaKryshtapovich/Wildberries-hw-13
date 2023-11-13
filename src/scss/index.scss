@@ -3,6 +3,7 @@
 @import '../scss/header.scss';
 @import '../scss/slider.scss';
 @import '../scss/products.scss';
+@import '../scss/media.scss';
 
 * {
   margin: 0;
@@ -28,4 +29,8 @@ button {
   padding: 0 20px;
 }
 
-@import '../scss/media.scss';
+@media (max-width: 320px) {
+  .container {
+    padding: 0 10px;
+}
+}
