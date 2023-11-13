@@ -107,7 +107,9 @@
     }
   }
 }
-
+.section-products__card.hide{
+  display: none;
+}
 .products-modal {
 
     display: none;
