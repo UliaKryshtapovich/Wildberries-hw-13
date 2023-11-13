@@ -17,7 +17,7 @@ document.getElementById('search').addEventListener
         }
     });
     
-    seachInput.addEventListener('keypress', function (e) {
+    searchInput.addEventListener('keypress', function (e) {
         let key = e.which || e.keyCode;
         if (key === 13) { 
             searchButton.click();
