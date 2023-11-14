@@ -102,6 +102,10 @@
         padding-bottom: 30px;
     }
 
+    &-modal_render {
+        width: 100%;
+    }
+
     &-modal_render,
     &-modal_summary,
     &-modal_btn {
@@ -130,18 +134,21 @@
     &-modal_card {
         display: none;
         width: 100%;
-        // display: flex;
+        display: flex;
         justify-content: space-between;
         padding-bottom: 20px;
     }
 
     &-modal_summary {
         display: flex;
+        width: 100%;
         font-weight: bold;
         color: #e33dcd;
     }
 
     &-modal_info {
+        display: none;
+        align-self: flex-start;
         padding-bottom: 30px;
         font-size: 20px;
         font-weight: bold;
