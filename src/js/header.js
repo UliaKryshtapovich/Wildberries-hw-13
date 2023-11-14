@@ -5,6 +5,7 @@ const headerCartBascket = document.querySelector(".header-cart");
 const headerModal = document.getElementById("header-modal");
 const infoElement = document.querySelector(".header-modal_info");
 const titleElement = document.querySelector(".header-modal_title");
+// headerModal.append(titleElement);
 const summaryPrice = document.getElementById(".header-modal_summary_price");
 
 // слушатели событий
@@ -31,23 +32,21 @@ function closeCartOutside(event) {
 // итог суммы
 function updateTotal() {
   let total = 0;
-  const cartItems = headerModal.querySelectorAll(".header-modal_render");//находим все товары в корзине headerModal
+  const cartItems = headerModal.querySelectorAll(".header-modal_render"); //находим все товары в корзине headerModal
 
-  cartItems.forEach((cartItem) => { // по каждой карточки товара проходимся
-    const priceElement = cartItem.querySelector(".header-modal_render_price");// находим элемент с ценой товара
-    const priceText = priceElement.innerText;// и достаем текст - сумму 
-    const priceValue = parseFloat(priceText.replace(/[^\d.]/g, ""));// из текста в число, удалям все символы кроме цифр и точек
-    const counterElement = cartItem.querySelector("[data-counter]"); // количество товарa в корзине 
+  cartItems.forEach((cartItem) => {
+    // по каждой карточки товара проходимся
+    const priceElement = cartItem.querySelector(".header-modal_render_price"); // находим элемент с ценой товара
+    const priceText = priceElement.innerText; // и достаем текст - сумму
+    const priceValue = parseFloat(priceText.replace(/[^\d.]/g, "")); // из текста в число, удалям все символы кроме цифр и точек
+    const counterElement = cartItem.querySelector("[data-counter]"); // количество товарa в корзине
     const itemCount = parseInt(counterElement.innerText, 10) || 0;
-    
+
     total += priceValue * itemCount;
   });
 
   summaryPrice.innerText = `Итог: ${total.toFixed(2)} руб.`;
 }
-
-
-
 
 // oтслеживание клика кнопки добавить в корзину на карточке
 window.addEventListener("click", function (event) {
@@ -77,7 +76,6 @@ window.addEventListener("click", function (event) {
       counterElement.innerText =
         (parseInt(counterElement.innerText, 10) || 0) + 1;
       counterElement.dataset.counter = counterElement.innerText;
- 
     } else {
       // eсли товара нет в корзине, создаем новую карточку
       const cartItemHTML = `    
@@ -101,7 +99,9 @@ window.addEventListener("click", function (event) {
         </div>
       </div>`;
 
-      titleElement.insertAdjacentHTML("afterend", cartItemHTML);
+      headerModal.insertAdjacentHTML("beforeend", cartItemHTML);
+      // titleElement.insertAdjacentHTML("beforeend", cartItemHTML);
+      // titleElement.insertAdjacentHTML("afterend", cartItemHTML);
     }
     event.stopPropagation();
     updateTotal()
@@ -114,7 +114,8 @@ window.addEventListener("click", function (event) {
     // удаляем карточку товара
     if (cardToDelete) {
       cardToDelete.remove();
-      updateTotal()
+      updateTotal();
+      // updateLocalStorage();
     }
   }
   //  кнопка очистить корзину
@@ -126,6 +127,22 @@ window.addEventListener("click", function (event) {
       item.remove();
     });
     infoElement.style.display = "block";
-    updateTotal()
+    updateTotal();
   }
+  // updateLocalStorage();
 });
+
+// // обновление localStorage при изменении корзины
+// function updateLocalStorage() {
+//   const cartData = {
+//     html: headerModal.innerHTML,
+//   };
+//   localStorage.setItem("cart", JSON.stringify(cartData));
+// }
+
+// const savedCart = localStorage.getItem("cart");
+// if (savedCart) {
+//   const parsedCart = JSON.parse(savedCart);
+//   headerModal.innerHTML = parsedCart.html;
+//   updateTotal();
+// }
