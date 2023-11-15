@@ -1,5 +1,7 @@
 "use strict";
 
+// import { headerCartBascket, headerModal, infoElement, titleElement, summaryPrice, cartSaveToLS } from './variables.js';
+
 // переменные
 const headerCartBascket = document.querySelector(".header-cart");
 const headerModal = document.getElementById("header-modal");
@@ -50,6 +52,7 @@ function updateTotal() {
   saveCartToLocalStorage();
 
   infoElement.style.display = total === 0 ? "block" : "none";
+  summaryPrice.style.display = total === 0 ? "none" : "block";
 }
 
 // сохранениe корзины в Local Storage

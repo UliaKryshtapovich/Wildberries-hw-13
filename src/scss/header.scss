@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    width: 100%;
 
     &-wrapper {
         display: flex;
@@ -16,7 +17,7 @@
         font-size: 30px;
         font-weight: 400;
         color: white;
-        padding: 0 10px;
+        padding: 0px 50px 0px 10px;
     }
 
     #header-input {
@@ -26,27 +27,34 @@
         font-size: 20px;
         border-radius: 50px;
         background-color: #ca88fa4d;
-        width: 580px;
+        width: 100%;
+        position: relative;
         padding-left: 50px;
         outline: none;
         color: white;
+        cursor:pointer;
 
         &::placeholder {
             color: rgba(255, 255, 255, 0.6509803922);
         }
+
+        &:hover {
+            background-color:  #dbb0fa4d;
+        }
     }
 
     .search-container {
-        position: relative;
+        // position: relative;
+        flex-grow: 1;
     }
 
     .search-icon {
         position: absolute;
-        top: 30px;
-        left: 20px;
-        transform: translateY(-50%);
+        top: 56px;
+        left: 298px;
+        transform: translate(-50%, -50%);
         color: rgba(255, 255, 255, 0.6509803922);
-        font-size: 18px;
+        font-size: 20px;
         cursor: pointer;
     }
 
