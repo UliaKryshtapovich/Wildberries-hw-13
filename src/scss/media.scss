@@ -24,15 +24,8 @@
       font-size: 20px;
     }
 
-    #header-input {
-      width: 300px;
-      height: 40px;
-      font-size: 18px;
-    }
-
     .search-icon {
       font-size: 16px;
-      top: 21px;
     }
 
     &-cart {
@@ -88,25 +81,19 @@
       font-size: 12px;
     }
 
-    #header-input {
-      font-size: 14px;
-      width: 210px;
-      height: 50px;
-      padding-left: 40px;
-    }
-
     .header-logo {
       font-size: 13px;
+      padding: 0 10px 0px 0px;
     }
 
     .search-icon {
       font-size: 13px;
-      top: 25px;
+      top: 20px;
       left: 15px;
     }
 
-    &-cart {
-      width: 65px;
+    .header-cart {
+      width: 42px;
     }
 
     &-cart .fa-solid {
@@ -164,6 +151,11 @@
   .header-wrapper_counter {
     font-size: 14px;
   }
+
+.header-cart .fa-solid, .header-modal_title {
+    font-size: 19px;
+}
+
 }
 
 @media (max-width: 375px) {
@@ -172,14 +164,12 @@
   }
 
   #header #header-input {
-    width: 110px;
-    height: 40px;
     padding-left: 30px;
   }
 
   #header .search-icon {
     top: 20px;
-    left: 10px;
+    left: 18px;
   }
 
   .header-cart {
@@ -247,10 +237,6 @@
 }
 
 // header end
-
-//slider start
-
-//slider end
 
 //products start
 @media (max-width: 768px) {
@@ -336,6 +322,10 @@
         max-width: 100%;
         height: 100%;
     }
+    .swiper-button-prev:hover, .swiper-button-next:hover {
+      width: 30px;
+      height: 30px;
+    }
 }
 @media (max-width: 320px) {
     .swiper {
@@ -356,9 +346,6 @@
 
 
 @media (max-width: 375px) {
-  .container {
-    max-width: 375px;
-  }
 
   .section-products__card-price__past p {
     font-size: 13px;

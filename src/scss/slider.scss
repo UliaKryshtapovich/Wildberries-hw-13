@@ -72,12 +72,20 @@ color:#e33dcd
 }
 
 .swiper-backface-hidden .swiper-slide {
-  height: 200px;
+  height: 100%;
   overflow: hidden;
 }
 
-.swiper-slide{
-  object-fit: cover; 
+.swiper-backface-hidden .swiper-slide  img {
+    width: 100%;
+    height: auto; 
+    object-fit: contain; 
+  }
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .swiper-button-prev:hover, .swiper-button-next:hover{
