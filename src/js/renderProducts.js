@@ -1,6 +1,6 @@
 "use strict";
 
-export {sectionProductsWrapper};
+// export {sectionProductsWrapper};
 
 const sectionProductsWrapper = document.querySelector( ".section-products__wrapper");
  
@@ -31,8 +31,6 @@ function getProducts() {
     console.error('Ошибка при получении товаров:', error.message);
   });
 }
-
-
 
 function renderProducts(productsArray) {
   productsArray.forEach(function (item) {

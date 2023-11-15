@@ -60,17 +60,14 @@ function updateTotal() {
 function saveCartToLocalStorage() {
   localStorage.setItem("cartSaveToLS", JSON.stringify(cartSaveToLS));
 }
-
-// восстановленить корзину из Local Storage
+// восстановить корзину из Local Storage
 function restoreCartFromLocalStorage() {
   const savedCart = localStorage.getItem("cartSaveToLS");
-  if (savedCart) {
-    cartSaveToLS = JSON.parse(savedCart);
+  cartSaveToLS = JSON.parse(savedCart);
 
-    cartSaveToLS.forEach((item) => {
-      const cartItemHTML = createCartItemHTML(item);
-      headerModal.insertAdjacentHTML("beforeend", cartItemHTML);
-    });
+  for (let i = 0; i < cartSaveToLS.length; i++) {
+    const item = cartSaveToLS[i];
+    headerModal.insertAdjacentHTML("beforeend", createCartItemHTML(item));
   }
 }
 

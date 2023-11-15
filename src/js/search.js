@@ -3,7 +3,7 @@ document.getElementById("search").addEventListener("click", () => {
   let elements = document.querySelectorAll(".section-products__card-title p");
   let cards = document.querySelectorAll(".section-products__card");
 
-  elements.forEach((element, index) => { // поиск по элементам из массива elements
+  elements.forEach((element, index) => { // поиск по элементам из elements
     if (element.innerText.toLowerCase() === searchInput) { // совпадает ли текст c элементом 
       cards[index].classList.remove("hide");
     } else {
