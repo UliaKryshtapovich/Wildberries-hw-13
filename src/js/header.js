@@ -1,6 +1,7 @@
 "use strict";
 
-// import { headerCartBascket, headerModal, infoElement, titleElement, summaryPrice, cartSaveToLS } from './variables.js';
+// import { saveCartToLocalStorage, restoreCartFromLocalStorage } from './localStorage.js';
+// export {cartSaveToLS, createCartItemHTML, headerModal };
 
 // переменные
 const headerCartBascket = document.querySelector(".header-cart");
@@ -55,50 +56,60 @@ function updateTotal() {
   summaryPrice.style.display = total === 0 ? "none" : "block";
 }
 
-// сохранениe корзины в Local Storage
+// сохранить корзину в Local Storage
 function saveCartToLocalStorage() {
   localStorage.setItem("cartSaveToLS", JSON.stringify(cartSaveToLS));
 }
 
-// восстановлениe корзины из Local Storage
+// восстановленить корзину из Local Storage
 function restoreCartFromLocalStorage() {
   const savedCart = localStorage.getItem("cartSaveToLS");
   if (savedCart) {
     cartSaveToLS = JSON.parse(savedCart);
 
     cartSaveToLS.forEach((item) => {
-      const cartItemHTML = `
-        <div class="header-modal_render" id="${item.id}">
-          <div class="header-modal_render_img"> 
-            <img src=${item.img} alt="#">
-          </div>
-          <div class="header-modal_render_desc"> 
-            <span class="header-modal_render_product">${item.title}</span>
-            <span class="header-modal_render_price">${item.price}</span>
-          </div>
-          <div class="header-wrapper_counter"> 
-            <div class="header-modal_render_counter"> 
-              <div class="header-modal_render_counter__minus" data-action="minus"><i class="fa-solid fa-minus"></i></div>
-              <div class="items-current" data-counter>${item.count}</div>
-              <div class="header-modal_render_counter__plus" data-action="plus"><i class="fa-solid fa-plus"></i></div>
-            </div>
-          </div>
-          <div class="header-modal_render_btn"> 
-            <button class="header-modal_render_delete"><i class="fa-solid fa-trash"></i></button>
-          </div>
-        </div>`;
-
+      const cartItemHTML = createCartItemHTML(item);
       headerModal.insertAdjacentHTML("beforeend", cartItemHTML);
     });
   }
 }
 
-// функция для добавления товара в корзину
+//  HTML товара
+function createCartItemHTML(item) {
+  return `
+    <div class="header-modal_render" id="${item.id}">
+      <div class="header-modal_render_img"> 
+        <img src=${item.img} alt="#">
+      </div>
+      <div class="header-modal_render_desc"> 
+        <span class="header-modal_render_product">${item.title}</span>
+        <span class="header-modal_render_price">${item.price}</span>
+      </div>
+      <div class="header-wrapper_counter"> 
+        <div class="header-modal_render_counter"> 
+          <div class="header-modal_render_counter__minus" data-action="minus"><i class="fa-solid fa-minus"></i></div>
+          <div class="items-current" data-counter>${item.count}</div>
+          <div class="header-modal_render_counter__plus" data-action="plus"><i class="fa-solid fa-plus"></i></div>
+        </div>
+      </div>
+      <div class="header-modal_render_btn"> 
+        <button class="header-modal_render_delete"><i class="fa-solid fa-trash"></i></button>
+      </div>
+    </div>`;
+}
+
+// добавление товара в корзину
 function addToCart(productInfo) {
   const existingItem = cartSaveToLS.find((item) => item.id === productInfo.id);
 
   if (existingItem) {
     existingItem.count++;
+
+    const itemInCart = headerModal.querySelector(`[id="${productInfo.id}"]`);
+    if (itemInCart) {
+      const counterElement = itemInCart.querySelector("[data-counter]");
+      counterElement.innerText = existingItem.count;
+    }
   } else {
     cartSaveToLS.push({
       id: productInfo.id,
@@ -107,15 +118,18 @@ function addToCart(productInfo) {
       price: productInfo.price,
       count: 1,
     });
+
+    const cartItemHTML = createCartItemHTML(productInfo);
+    headerModal.insertAdjacentHTML("beforeend", cartItemHTML);
   }
 
   saveCartToLocalStorage();
   updateTotal();
 }
 
-// oтслеживание клика кнопки добавить в корзину на карточке
+
+// добавить в корзину на продукте
 window.addEventListener("click", function (event) {
-  // наличие класса у события .closest-поиск ближайшего родительского элемента
   if (event.target.closest(".section-products__card-button")) {
     const cardToCart = event.target.closest(".section-products__card");
     const productInfo = {
@@ -131,72 +145,43 @@ window.addEventListener("click", function (event) {
     addToCart(productInfo);
     infoElement.style.display = "none";
 
-    //проверка на дублирование товара в корзине
     const itemInCart = headerModal.querySelector(`[id="${cardToCart.id}"]`);
 
-    // если товар есть в корзине
     if (itemInCart) {
       const counterElement = itemInCart.querySelector("[data-counter]");
       counterElement.innerText =
         (parseInt(counterElement.innerText, 10) || 0) + 1;
       counterElement.dataset.counter = counterElement.innerText;
     } else {
-      // eсли товара нет в корзине, создаем новую карточку
-      const cartItemHTML = `
-        <div class="header-modal_render" id="${cardToCart.id}">
-        <div class="header-modal_render_img">
-          <img src=${productInfo.img} alt="#">
-        </div>
-        <div class="header-modal_render_desc">
-          <span class="header-modal_render_product">${productInfo.title}</span>
-          <span class="header-modal_render_price">${productInfo.price}</span>
-        </div>
-        <div class="header-wrapper_counter">
-          <div class="header-modal_render_counter">
-            <div class="header-modal_render_counter__minus" data-action="minus"><i class="fa-solid fa-minus"></i></div>
-            <div class="items-current" data-counter>1</div>
-            <div class="header-modal_render_counter__plus" data-action="plus"><i class="fa-solid fa-plus"></i></div>
-          </div>
-        </div>
-        <div class="header-modal_render_btn">
-          <button class="header-modal_render_delete"><i class="fa-solid fa-trash"></i></button>
-        </div>
-      </div>`;
-
+      const cartItemHTML = createCartItemHTML(productInfo);
       headerModal.insertAdjacentHTML("beforeend", cartItemHTML);
     }
+
     event.stopPropagation();
-		updateTotal();		
+    updateTotal();
     saveCartToLocalStorage();
   }
-  // была ли нажата кнопка удалить товар
+
   if (event.target.classList.contains("header-modal_render_delete")) {
-    // находим ближайший родительский элемент с классом .header-modal_render
     const cardToDelete = event.target.closest(".header-modal_render");
-    // удаляем карточку товара
     if (cardToDelete) {
       cardToDelete.remove();
       updateTotal();
-
-      // oбновить массив, удаляя только выбранный товар
       cartSaveToLS = cartSaveToLS.filter((item) => item.id !== cardToDelete.id);
       saveCartToLocalStorage();
     }
   }
-	  // кнопка очистить корзину		
-	  if (event.target.classList.contains("header-modal_btn")) {		
-	    const itemsToDelete = headerModal.querySelectorAll(".header-modal_render");		
-			
-	    itemsToDelete.forEach(function (item) {		
-	      item.remove();		
-	    });		
-			
-	    infoElement.style.display = "block";		
-	    cartSaveToLS = []; // oчищаем корзину в массиве		
-			
-	    updateTotal();		
-	    saveCartToLocalStorage();		
-	  }
+
+  if (event.target.classList.contains("header-modal_btn")) {
+    const itemsToDelete = headerModal.querySelectorAll(".header-modal_render");
+    itemsToDelete.forEach(function (item) {
+      item.remove();
+    });
+    infoElement.style.display = "block";
+    cartSaveToLS = [];
+    updateTotal();
+    saveCartToLocalStorage();
+  }
 });
 
 // восстановление корзины при загрузке страницы
