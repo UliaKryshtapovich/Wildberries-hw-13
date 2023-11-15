@@ -1,7 +1,6 @@
 "use strict";
 
 // import { saveCartToLocalStorage, restoreCartFromLocalStorage } from './localStorage.js';
-// export {cartSaveToLS, createCartItemHTML, headerModal };
 
 // переменные
 const headerCartBascket = document.querySelector(".header-cart");
@@ -56,19 +55,25 @@ function updateTotal() {
   summaryPrice.style.display = total === 0 ? "none" : "block";
 }
 
+// добавлениe элемента html в корзину
+function addToCartUI(product) {
+  const cartItemHTML = createCartItemHTML(product);
+  headerModal.insertAdjacentHTML("beforeend", cartItemHTML);
+}
+
 // сохранить корзину в Local Storage
 function saveCartToLocalStorage() {
   localStorage.setItem("cartSaveToLS", JSON.stringify(cartSaveToLS));
 }
-// восстановленить корзину из Local Storage
+
+// из Local Storage
 function restoreCartFromLocalStorage() {
   const savedCart = localStorage.getItem("cartSaveToLS");
   if (savedCart) {
     cartSaveToLS = JSON.parse(savedCart);
 
     cartSaveToLS.forEach((item) => {
-      const cartItemHTML = createCartItemHTML(item);
-      headerModal.insertAdjacentHTML("beforeend", cartItemHTML);
+      addToCartUI(item);
     });
   }
 }
@@ -118,8 +123,7 @@ function addToCart(productInfo) {
       count: 1,
     });
 
-    const cartItemHTML = createCartItemHTML(productInfo);
-    headerModal.insertAdjacentHTML("beforeend", cartItemHTML);
+    addToCartUI(productInfo);
   }
 
   saveCartToLocalStorage();
@@ -148,11 +152,10 @@ window.addEventListener("click", function (event) {
     if (itemInCart) {
       const counterElement = itemInCart.querySelector("[data-counter]");
       counterElement.innerText =
-        (parseInt(counterElement.innerText, 10) || 0) + 1;
+        (parseInt(counterElement.innerText, 10) || 1);
       counterElement.dataset.counter = counterElement.innerText;
     } else {
-      const cartItemHTML = createCartItemHTML(productInfo);
-      headerModal.insertAdjacentHTML("beforeend", cartItemHTML);
+    addToCartUI(productInfo);
     }
 
     event.stopPropagation();
