@@ -60,14 +60,16 @@ function updateTotal() {
 function saveCartToLocalStorage() {
   localStorage.setItem("cartSaveToLS", JSON.stringify(cartSaveToLS));
 }
-// восстановить корзину из Local Storage
+// восстановленить корзину из Local Storage
 function restoreCartFromLocalStorage() {
   const savedCart = localStorage.getItem("cartSaveToLS");
-  cartSaveToLS = JSON.parse(savedCart);
+  if (savedCart) {
+    cartSaveToLS = JSON.parse(savedCart);
 
-  for (let i = 0; i < cartSaveToLS.length; i++) {
-    const item = cartSaveToLS[i];
-    headerModal.insertAdjacentHTML("beforeend", createCartItemHTML(item));
+    cartSaveToLS.forEach((item) => {
+      const cartItemHTML = createCartItemHTML(item);
+      headerModal.insertAdjacentHTML("beforeend", cartItemHTML);
+    });
   }
 }
 
@@ -123,7 +125,6 @@ function addToCart(productInfo) {
   saveCartToLocalStorage();
   updateTotal();
 }
-
 
 // добавить в корзину на продукте
 window.addEventListener("click", function (event) {
